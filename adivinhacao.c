@@ -7,11 +7,11 @@ int MAX_TENTATIVAS;
 
 int main(){
 
-    int tentativas = 0, numeroSecreto, ganhou = 0;
+    int tentativas = 0, maxTentativas, numeroSecreto, ganhou = 0;
 
     numeroSecreto = sorteiaNumero();
 
-    mostraMensagemInicial();
+    mostraMensagemInicial(&maxTentativas);
 
     do
     {
@@ -31,7 +31,7 @@ int main(){
     return 0;
 }
 
-void mostraMensagemInicial(){
+void mostraMensagemInicial(int* maxTentativas){
 
     printf("------------------------------------\n");
     printf("Boas vindas ao jogo da adivinhacao\n");
@@ -41,7 +41,8 @@ void mostraMensagemInicial(){
     printf("2 - MEDIO\n");
     printf("3 - DIFICIL\n\n");
 
-    defineDificuldade();
+    defineDificuldade(maxTentativas);
+    //*maxTentativas = 100;
 }
 
 int sorteiaNumero(){
@@ -60,7 +61,7 @@ int nivelValido(int nivel){
     return nivel > 0 && nivel <= 3;
 }
 
-void defineDificuldade(){
+void defineDificuldade(int* maxTentativas){
 
     int nivelDificuldade;
 
@@ -70,13 +71,13 @@ void defineDificuldade(){
         switch (nivelDificuldade)
         {
         case 1:
-            MAX_TENTATIVAS = 10;
+            *maxTentativas = 10;
             break;
         case 2:
-            MAX_TENTATIVAS  = 5;
+            *maxTentativas  = 5;
             break;
         case 3:
-            MAX_TENTATIVAS = 3;
+            *maxTentativas = 3;
             break;
         }
     }
