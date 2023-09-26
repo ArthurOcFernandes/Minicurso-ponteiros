@@ -3,7 +3,6 @@
 #include <time.h>
 #include "adivinhacao.h"
 
-int MAX_TENTATIVAS;
 
 int main(){
 
@@ -11,7 +10,8 @@ int main(){
 
     numeroSecreto = sorteiaNumero();
 
-    mostraMensagemInicial(&maxTentativas);
+    mostraMensagemInicial();
+    defineDificuldade(&maxTentativas);
 
     do
     {
@@ -24,14 +24,14 @@ int main(){
 
         printf(chute > numeroSecreto ? "O numero secreto eh menor que o chute.\n" : "O numero secreto eh maior que o chute.\n");
 
-    } while (tentativas < MAX_TENTATIVAS);
+    } while (tentativas < maxTentativas);
     
     printf(ganhou ? "Parabens, voce acertou o numero secreto em %d tentativas": "Que pena, dessa vez nao deu pra descobrir o numero secreto =[. Que tal jogar novamente?", tentativas);
 
     return 0;
 }
 
-void mostraMensagemInicial(int* maxTentativas){
+void mostraMensagemInicial(){
 
     printf("------------------------------------\n");
     printf("Boas vindas ao jogo da adivinhacao\n");
@@ -41,7 +41,6 @@ void mostraMensagemInicial(int* maxTentativas){
     printf("2 - MEDIO\n");
     printf("3 - DIFICIL\n\n");
 
-    defineDificuldade(maxTentativas);
     //*maxTentativas = 100;
 }
 
