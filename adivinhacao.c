@@ -5,37 +5,6 @@
 
 int MAX_TENTATIVAS;
 
-
-int nivelValido(int nivel){
-    return nivel > 0 && nivel <= 3;
-}
-
-void defineDificuldade(){
-
-    int nivelDificuldade;
-
-    scanf("%d", &nivelDificuldade);
-
-    if(nivelValido(nivelDificuldade)){
-        switch (nivelDificuldade)
-        {
-        case 1:
-            MAX_TENTATIVAS = 10;
-            break;
-        case 2:
-            MAX_TENTATIVAS  = 5;
-            break;
-        case 3:
-            MAX_TENTATIVAS = 3;
-            break;
-        }
-    }
-    
-}
-
-
-
-
 int main(){
 
     int tentativas = 0, numeroSecreto, ganhou = 0;
@@ -87,4 +56,30 @@ int chuta(){
     return chute;
 }
 
+int nivelValido(int nivel){
+    return nivel > 0 && nivel <= 3;
+}
+
+void defineDificuldade(){
+
+    int nivelDificuldade;
+
+    scanf("%d", &nivelDificuldade);
+
+    if(nivelValido(nivelDificuldade)){
+        switch (nivelDificuldade)
+        {
+        case 1:
+            MAX_TENTATIVAS = 10;
+            break;
+        case 2:
+            MAX_TENTATIVAS  = 5;
+            break;
+        case 3:
+            MAX_TENTATIVAS = 3;
+            break;
+        }
+    }
+    
+}
 
