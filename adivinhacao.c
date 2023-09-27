@@ -4,9 +4,10 @@
 #include "adivinhacao.h"
 
 
+
 int main(){
 
-    int tentativas = 0, maxTentativas, numeroSecreto, ganhou = 0;
+    int tentativas = 0, maxTentativas, numeroSecreto, ganhou = 0, pontuacao = 1000;
 
     numeroSecreto = sorteiaNumero();
 
